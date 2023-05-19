@@ -1,0 +1,1253 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300&display=swap');
+
+:root{
+    --clr-main: hsla(317, 97%, 73%, 0.95);
+    --clr-background: hsla(241, 62%, 21%, 0.7);
+    --clr-border: #34b8e9;
+    --clr-border-hover: #ffc0ef;
+    font-size: 2.4vh;
+}
+
+*{
+    padding:0;
+    margin: 0;
+    font-family: "Nunito Sans",Tahoma, Verdana, sans-serif;
+    box-sizing: border-box;
+    color: var(--clr-main);
+}
+
+::placeholder{
+    color: #ffd0d0;
+}
+
+body{
+    background-color: var(--clr-background);
+    background-image: url(../images/city-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/*      ------------------------------ GENERIC CLASSES ------------------------------     */
+
+/*      *** add neon borders ***    */
+.neon{
+    background: rgb(25,24,91);
+    background: radial-gradient(circle, rgba(25,24,91,0.7) 62%, rgba(23,21,135,0.7) 100%);
+    
+    border: 0.2em solid var(--clr-border);
+    border-radius: 0.5rem;
+    text-shadow:0.1em 0.1em 0 var(--clr-background) ,
+                0 0 0.5rem var(--clr-border-hover);
+    box-shadow: inset 0 0 0.5rem var(--clr-border), 
+                0 0 0.5rem var(--clr-border);
+}
+
+.neon90deg{
+    background-color: var(--clr-background);
+    border: 0.2em solid var(--clr-border);
+    text-shadow: 0 0 0.5rem var(--clr-border-hover);
+    box-shadow: inset 0 0 0.5rem var(--clr-border), 
+                0 0 0.5rem var(--clr-border);
+}
+
+/*      *** change text color and background when hovering ***  */
+.text-enhance{
+    transition: all 0.3s ease-in-out,
+                text-shadow 0.2s ease;
+}
+
+.text-enhance:hover{
+    background: radial-gradient(circle, rgba(253,119,215,1) 59%, rgba(254,161,229,1) 94%, rgba(255,192,239,1) 100%);
+    background-color: var(--clr-main);
+    border: 0.2em solid var(--clr-border-hover);
+
+    color: var(--clr-background);
+    font-weight: bold;
+
+    box-shadow: inset 0 0 0.5em var(--clr-border-hover), 
+    0 0 0.5em var(--clr-border-hover);
+    text-shadow: 0 0 0.5rem var(--clr-border-hover);
+}
+
+
+/*      *** expand when hovering ***    */
+.expand{
+    display: inline-block;
+    transition: transform 0.3s ease-in;
+}
+
+.expand:hover{
+    transform: scale(1.2);
+}
+
+
+.make-appear:hover .test{
+    opacity: 1;
+}
+
+.blury{
+    backdrop-filter: blur(2px);
+}
+/*      ------------------------------ HEADER ------------------------------        */
+
+/*      ------------------------------ NAVIGATION BAR ------------------------------      */
+
+/*      *** stylizing the nav and it's buttons *** */
+.toggle-nav{
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#toggle{
+    display: none;
+}
+
+.vertical-nav{
+    z-index: 9;
+    display: flex;
+    height: 100vh;
+    width: 10em;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: fixed;
+    top: 0vh;
+    left:0;
+    transform: translateX(-11em);
+    transition: all 0.3s ease-in-out;
+}
+
+.vertical-nav div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.vertical-nav a{
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+    margin: 0.125em 0;
+    width: 100%;
+}
+
+.toggle-nav img{
+    height: 6vh;
+    width:  6vh;
+    object-fit: contain;
+    padding: 1vh;
+    background-color: var(--clr-background);
+    border-radius: 50%;
+    margin: 1vh;
+    margin-bottom: 0;
+    transition: all 0.3s ease-in-out
+}
+
+#toggle:checked ~ .vertical-nav{
+    transform: translateX(0);
+}
+
+#toggle:checked ~ .toggle-nav img{
+    transform: translateX(10em) rotate(90deg);
+}
+
+.toggle-nav{
+    display: none;
+}
+
+.vertical-nav{
+    display: none;
+}
+
+/*      --- DESKTOP NAV ---      */
+
+
+
+nav{
+    width: 100%;
+    height: 4rem;
+}
+
+.nav-links{
+    display: flex;
+    top: 25%;
+    left: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-links a{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration:none;
+    
+    padding: 0.25em 1em;
+}
+
+/*      *** adjusts and possitions the logo to the top right *** */
+.img-logo{
+    height: 3.5em;
+    width:  3em;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.img-logo:hover{
+    transform: rotate(1080deg) scale(1.3);
+}
+
+/*      *** adjusts the page title *** */
+.web-title{
+    text-align: center;
+    margin: 0.5em auto;
+    width: 40vw;
+    padding: 0 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+/*      ------------------------------ MAIN CONTENT ------------------------------      */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-row{
+    height: 150vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin: 0 10vw;
+    align-items: center;
+    font-size: 0.8em;
+}
+
+/*      ------------------------------ HOME ------------------------------      */
+.home-container{
+    margin: 4vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*      *** adjusts the banner image of home ***        */
+.img-banner{
+    width: 80vw;
+    height: 30vh;
+    object-fit: cover;
+    object-position:50% 80%;
+    border-radius: 1em;
+}
+
+.home-content{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*      *** adjusts the other image in home ***     */
+.home-content img{
+    height: 30vh;
+    width: 40vw;
+    object-position:center;
+    object-fit: cover;
+}
+
+/*      *** centers the text in the middle of the box ***       */
+.home-content p{
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 30vh;
+    padding: 5vh 2em;
+}
+
+
+/*      ------------------------------ ABOUT US ------------------------------      */
+
+/*      *** adjust the size of gallery.html divs so they respect the screen size */
+.aboutUs-gallery{
+    height: 12.5vw;
+    display: flex;
+}
+.aboutUs-gallery img{
+    height: 12.5vw;
+    width: 12.5vw;
+    object-fit: cover;
+}
+
+.aboutUs-gallery p{
+    margin: 0;
+    padding: 0;
+    font-size: 3vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center ;
+    width: 37.5vw;
+    height: 12.5vw;
+}
+
+.aboutUs-gallery span{
+    text-align: center;
+    width: 75%;  
+}
+
+/*      ------------------------------ CONTACT ------------------------------      */
+#contact-image{
+    width: 60vw;
+    height: 50vh;
+    object-fit: cover;
+    object-position: top;
+}
+
+#contact-text{
+    width: 60vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-text a, #contact-text p{
+    margin: 0.5rem 0;
+}
+
+#upper-ctext{
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1vh 3em;
+}
+
+#lower-ctext{
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#lower-ctext a{
+    display: flex;
+    font-weight: bold;
+    text-decoration:none;
+    height: 2.5em;
+    width: 25vw;
+    padding: 0.35em 0.5em;
+
+    justify-content: center;
+}
+
+
+/*      ------------------------------ MORE INFO ------------------------------ */
+#info{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    height: 70vh;
+    
+}
+
+.info-table{
+    width: 60vw;
+    text-align: left;
+    border-collapse: separate;
+    border-radius: .5em;
+    
+}
+
+.info-table th{
+    font-weight: bold;
+}
+
+.info-table th, .info-table td{
+    color: currentColor;
+    padding: 0.25em;
+    padding-left: 1.5em;
+    
+}
+
+
+/*      ------------------------------ BENEFITS AND TIPS ------------------------------ */
+.benefitsTips{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.benefitsTips img{
+    width: 15vw;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.div-parent{
+    width: 50vw;
+    height: 15vw;
+    margin-bottom: 4vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-container{
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5vw;
+}
+
+.list-container .l-span{
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    pointer-events: none;
+}
+
+.list-contained{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    list-style-type: none;
+}
+.list-contained li{
+    font-size: 0.7em;
+    margin:0 10%;
+    font-weight: bold;
+}
+
+.list-contained span{
+    padding: 0.5em;
+}
+.empty{
+    display: none;
+}
+
+
+/*      *** makes the images invisible until hovering each text ***   */
+
+.test{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/*      *** overlay the images on top of eachother ***      */
+/*      !!!I just realized it didn't work as intended on fullscreen - Solved */
+
+.top-image{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    right:40vw;
+    bottom: 10vh; 
+}
+.bottom-image{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    right:40vw;
+    bottom: -48.5vh; 
+}
+
+/*      ------------------------------ RAFFLE ------------------------------ */
+.map-container{
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: space-evenly;
+}
+.map-container p{
+    display: flex;
+    justify-content: center;
+    margin: 0 1em;
+    padding: 1em;
+}
+
+.map-container span{
+    text-align: center;
+    width: 80%;
+    height: 80%;
+
+}
+
+.myMap{
+    height: 40vh;
+    width: 27vw;
+    margin: 0 1em;
+
+}
+
+option{
+    color: currentColor;
+}
+
+.raffle-form{
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    accent-color: var(--clr-main);
+}
+
+.raffle-form fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.raffle-form fieldset{
+    width: 30vw;
+    margin: 0;
+    padding: 0.2em 0;
+    
+}
+/*  */
+
+.p-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 1em;
+    font-size: 1em;
+}
+
+
+
+.p-info input{
+    width: 100%;
+    height: 2em;
+}
+
+/*  */
+
+.tournament-choose{
+    height: auto;
+    box-sizing: border-box;
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+}
+
+.tournament-choose label select{
+    width: 10vw;
+    height: 3em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tournament-choose label select{
+    padding:0.3em;
+}
+
+/*  */
+.pay-div{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.pay-div p{
+    margin-bottom: 0.25em;
+}
+
+.pay-div div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment{
+    width: 30%;
+    font-size: 0.8em;
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.raffle-message{
+    box-sizing: border-box;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.raffle-message p{
+    margin: 0.25em 10%;
+    width: 30vw;
+}
+
+.raffle-message textarea{
+    width: 25vw;
+    padding: 0.5em;
+    margin: 2vh 2.5vw
+}
+.end-raffle{
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+}
+.terms-n-co{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.terms-n-co input{
+    height: fit-content;
+}
+/*      ------------------------------ FOOTER ------------------------------ */
+footer{
+    width: 100vw;
+}
+
+footer p{
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+}
+
+footer a{
+    color: currentColor;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*      ------------------------------ MEDIA QUERYS ------------------------------ */
+@media only screen and (min-width: 1024px) and (max-width: 1439px){
+    /*      --------------- about us ---------------        */
+    .aboutUs-gallery p{
+        font-size: 1em;
+    }
+
+    /*      --------------- contact ---------------         */
+    #lower-ctext{
+        font-size: 0.9em;
+    }
+    /*      --------------- benefits */
+
+    .top-image{
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        right:40vw;
+        bottom: 10vh; 
+    }
+    .bottom-image{
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        right:40vw;
+        bottom: -48.5vh; 
+    }
+
+    /*      --------------- raffle */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    body{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /*      --------------- displayable nav ---------------     */
+    nav{
+        display: none;
+    }
+
+    .toggle-nav{
+        display: flex;
+    }
+    
+    .vertical-nav{
+        display: flex;
+    }
+
+    /*      --------------- home ---------------        */
+    .web-title{
+        width: 85vw;
+        min-height: 15vh;
+    }
+    
+    .img-banner{
+        width: 85%;
+    }
+
+    .home-container{
+        height: 100%;
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    .home-content{
+        flex-flow: column-reverse wrap;
+        justify-content: left;
+    }
+
+    .home-content p{
+        height: 20vh;
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-content p span{
+        font-size: 0.8em;
+        padding: 1em;
+    }
+
+    .home-content img{
+        width: 85%;
+        height: 20vh;
+    }
+
+    /*      --------------- about us ---------------        */
+    .aboutus-main{
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    .aboutUs-gallery{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        margin: 1em 0;
+    }
+
+    .aboutUs-gallery img{
+        height: 30vh;
+        width: 85vw;
+    }
+
+    .aboutUs-gallery p{
+        height: 20vh;
+        width: 85vw;
+        font-size: 0.9em;
+    }
+
+    /*      --------------- contact ---------------     */
+    #contact-image{
+        width: 85vw;
+    }
+
+    #contact-text{
+        width: 85vw;
+    }
+
+
+    #lower-ctext{
+        width: 100%;
+        flex-direction: column;
+        margin: 1em 0;
+    }
+
+    #lower-ctext a{
+        width: 100%;
+        margin: 0.125em 0;
+    }
+
+    /*      --------------- more info ---------------       */
+    #info{
+        height: 78vh;
+    }
+    
+    .info-table{
+        width: 100%;
+        font-size: 0.85em;
+    }
+
+    th, td{
+        height: 4em;
+    }
+
+    /*      --------------- benefits ---------------        */
+    .benefitsTips{
+        font-size: 1em;
+        width: 85vw;
+    }
+
+    .div-parent{
+        height: 60vh;
+        width: 85vw;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .div-parent img{
+        height: 30vh;
+        width: 30vh;
+    }
+
+    .div-parent li{
+        margin: 0;
+        width: 100%;
+    }
+
+    .div-parent span{
+        width: 100%;
+    }
+
+
+    .top-image{
+        position: absolute;
+        
+        inset: 0;
+        margin: 17vh auto;
+    }
+
+    .bottom-image{
+        position: absolute;
+        
+        inset: 0;
+        margin: 81vh auto;
+    }
+
+/*      --------------- raffle ---------------      */
+
+    .main-row{
+        margin: 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        
+    }
+
+    .raffle-form{
+        height: 90vh;
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .map-container{
+        margin-bottom: 5vh;
+        height: 50vh;
+        width: 85vw;
+    }
+
+    .myMap{
+        width: 75vw;
+        height: 30vh;
+    }
+
+    .upper-fs label{
+        width: 80vw;
+        margin: 0.125em 1em;
+    }
+
+    .lower-fs{
+        width: 100%;
+    }
+
+    .lower-fs label{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .tournament-choose{
+        width: 80vw;
+        margin: 1em;
+        
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .p-info input {
+        width: 100%;
+    }
+
+    .tournament-choose label select{
+        width: 60vw;
+        height: 3em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pay-div{
+        text-align: center;
+        margin: 0 auto;
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        align-items:stretch;
+        justify-content: space-evenly;
+    }
+
+    .pay-div label{
+        width: 15vw;
+        margin: 0 1em;
+    }
+
+    .raffle-message{
+        box-sizing:content-box ;
+        width: 80vw;
+        padding: 0 1em;
+    }
+
+    .raffle-message p{
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .raffle-message textarea {
+        width: 50vw;
+        padding: 1em;
+        margin: 2vh auto;
+    }
+
+    .end-raffle{
+        box-sizing:content-box ;
+        width: 80vw;
+        display: flex;
+        padding: 0 1em;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .terms-n-co{
+        width: 70vw;
+        font-size: 2.5vw;
+    }
+
+    .terms-n-co, .submit-button{
+        height: 3em;
+    }
+    
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    body{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /*      --------------- displayable nav ---------------     */
+    nav{
+        display: none;
+    }
+
+    .toggle-nav{
+        display: flex;
+    }
+    
+    .vertical-nav{
+        display: flex;
+    }
+
+    /*      --------------- home ---------------        */
+    .web-title{
+        width: 85vw;
+        min-height: 15vh;
+    }
+    
+    .img-banner{
+        width: 85%;
+    }
+
+    .home-container{
+        height: 100%;
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    .home-content{
+        flex-flow: column-reverse wrap;
+        justify-content: left;
+    }
+
+    .home-content p{
+        height: 20vh;
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-content p span{
+        font-size: 0.7rem;
+    }
+
+    .home-content img{
+        width: 85%;
+        height: 20vh;
+    }
+
+    /*      --------------- about us ---------------        */
+    .aboutus-main{
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    .aboutUs-gallery{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        margin: 1em 0;
+    }
+
+    .aboutUs-gallery img{
+        height: 30vh;
+        width: 85vw;
+    }
+
+    .aboutUs-gallery p{
+        height: 20vh;
+        width: 85vw;
+        font-size: 0.9em;
+    }
+
+    /*      --------------- contact ---------------     */
+    #contact-image{
+        width: 85vw;
+    }
+
+    #contact-text{
+        width: 85vw;
+    }
+
+
+    #lower-ctext{
+        width: 100%;
+        flex-direction: column;
+        margin: 1em 0;
+        font-size: 0.8em;
+    }
+
+    #lower-ctext a{
+        width: 100%;
+        margin: 0.125em 0;
+    }
+
+    /*      --------------- more info ---------------       */
+    .info-table{
+        width: 100%;
+        font-size: 0.85em;
+    }
+
+    th, td{
+        height: 4em;
+    }
+
+    /*      --------------- benefits ---------------        */
+    .benefitsTips{
+        font-size: 1em;
+        width: 85vw;
+    }
+
+    .div-parent{
+        height: 60vh;
+        width: 85vw;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .div-parent img{
+        height: 30vh;
+        width: 30vh;
+    }
+
+    .div-parent li{
+        margin: 0;
+        width: 100%;
+    }
+
+    .div-parent span{
+        width: 100%;
+    }
+
+
+    .top-image{
+        position: absolute;
+        
+        inset: 0;
+        margin: 17vh auto;
+    }
+
+    .bottom-image{
+        position: absolute;
+        
+        inset: 0;
+        margin: 81vh auto;
+    }
+
+    .bottom-list .test{
+        bottom:0;
+        left:none;
+    }   
+
+/*      --------------- raffle ---------------      */
+
+    .main-row{
+        margin: 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .raffle-form{
+        height: 90vh;
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .map-container{
+        margin-bottom: 5vh;
+        height: 50vh;
+        width: 85vw;
+    }
+
+    .myMap{
+        width: 75vw;
+        height: 30vh;
+    }
+
+    .upper-fs label{
+        width: 80vw;
+        margin: 0.125em 1em;
+    }
+
+    .lower-fs{
+        width: 100%;
+    }
+
+    .lower-fs label{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .tournament-choose{
+        width: 80vw;
+        margin: 1em;
+        
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .p-info input {
+        width: 100%;
+    }
+
+    .tournament-choose label select{
+        width: 60vw;
+        height: 3em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pay-div{
+        text-align: center;
+        margin: 0 auto;
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        align-items:stretch;
+        justify-content: space-evenly;
+    }
+
+    .pay-div label{
+        width: 15vw;
+        margin: 0 1em;
+    }
+
+    .raffle-message{
+        box-sizing:content-box ;
+        width: 80vw;
+        padding: 0 1em;
+    }
+
+    .raffle-message p{
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .raffle-message textarea {
+        width: 50vw;
+        padding: 1em;
+        margin: 2vh auto;
+    }
+
+    .end-raffle{
+        box-sizing:content-box ;
+        width: 80vw;
+        display: flex;
+        padding: 0 1em;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .terms-n-co{
+        width: 70vw;
+        font-size: 2.5vw;
+    }
+
+    .terms-n-co, .submit-button{
+        height: 3em;
+    }
+    
+    /*      ---------- footer ------------- */
+    footer p{
+        height: 2em;
+        font-size: 0.9em;
+    }
+}

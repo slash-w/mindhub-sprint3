@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindy Games - Raffle</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../images/icon.png">
+</head>
+<body>
+    <header>
+        <nav class="neon">
+            <div class="nav-links">
+                <a class="text-enhance expand neon" href="../../index.html">Home</a>
+                <a class="text-enhance expand neon" href="./aboutUs.html">About Us</a>
+                <a class="text-enhance expand neon" href="./contact.html">Contact</a>
+                <a class="text-enhance expand neon" href="./information.html">More Information</a>
+                <a class="text-enhance expand neon" href="./benefitsTips.html">Benefits and Tips</a>
+                <a class="text-enhance expand neon" href="#">Raffle</a>
+                <img class="img-logo" alt="logo" src="../images/logo.png">
+            </div>
+        </nav>
+
+        <!--NAVIGATION BAR FOR MOBILE USERS-->
+        <input id="toggle" type="checkbox">
+        <label class="toggle-nav" for="toggle"><img class="text-enhance expand neon" src="../images/three-bars-white.png"></label>
+
+        <nav class="vertical-nav neon">
+            <div class="nav-box">
+                <a class="text-enhance expand neon" href="../../index.html">Home</a>
+                <a class="text-enhance expand neon" href="./aboutUs.html">About Us</a>
+                <a class="text-enhance expand neon" href="./contact.html">Contact</a>
+                <a class="text-enhance expand neon" href="./information.html">More Information</a>
+                <a class="text-enhance expand neon" href="./benefitsTips.html">Benefits and Tips</a>
+                <a class="text-enhance expand neon" href="#">Raffle</a>
+            </div>    
+            <img class="img-logo" alt="logo" src="../images/logo.png">
+        </nav>
+
+        <div class="web-title neon">
+            <h1>Raffle</h1>
+            <h3>You can collaborate and register for one of our tournaments</h3>
+        </div>
+    </header>
+    <main class="main-row">
+        
+        <div class="map-container neon">
+            <p class="neon"><span class="expand">Our location where the tournaments are held at is at:</span></p>
+            <iframe class="myMap neon text-enhance" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d450942.73567663156!2d-82.73447112343412!3d27.994198599401237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2b782b3b9d1e1%3A0xa75f1389af96b463!2sTampa%2C%20Florida%2C%20EE.%20UU.!5e0!3m2!1ses-419!2sar!4v1684429508424!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <form class="raffle-form" method="get" action="./show_data.html">
+            <fieldset class="upper-fs neon">
+                <label for="fname"  class="p-info">First Name<input class="neon text-enhance" id="fname"  name="fname"  type="text"  required></label>
+                <label for="lname"  class="p-info">Last Name<input  class="neon text-enhance" id="lname"  name="lname"  type="text"  required></label>
+                <label for="e-mail" class="p-info">Email<input      class="neon text-enhance" id="e-mail" name="e-mail" type="email" required></label>
+            </fieldset>
+            <fieldset class="lower-fs neon">
+                <div class="tournament-choose">
+                    <label for="choose-game">Game
+                        <select id="choose-game" class="neon text-enhance" required>
+                            <option value="LOL">League of Legends</option>
+                            <option value="CS-GO">Counter Strike</option>
+                            <option value="VAL">Valorant</option>
+                            <option value="SFV">Street Fighter V</option>
+                            <option value="TKN">Tekken 7</option>
+                            <option value="GGS">Guilty Gear Strive</option>
+                        </select>
+                    </label>
+                    <label for="choose-date">Date
+                        <select id="choose-date" class="neon text-enhance" required>
+                            <option value="20-08-2023">20/08</option>
+                            <option value="12-10-2023">12/10</option>
+                            <option value="27-11-2023">27/11</option>
+                            <option value="12-12-2023">12/12</option>
+                            <option value="28-12-2023">28/12</option>
+                            <option value="10-01-2024">10/01</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="pay-div">
+                    <p>Form of payment</p>
+                    <div>    
+                        <label for="cash"   class="neon text-enhance payment">Cash  <input id="cash"   type="radio" name="payment" value="Cash" required></label>
+                        <label for="debit"  class="neon text-enhance payment">Debit <input id="debit"  type="radio" name="payment" value="Debit" required></label>
+                        <label for="credit" class="neon text-enhance payment">Credit<input id="credit" type="radio" name="payment" value="Credit" required></label>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="raffle-message neon">
+                <p>Message (optional)</p>
+                <textarea class="neon text-enhance" id="message" name="message" rows="5" cols="30" placeholder="Message (optional)" required></textarea>
+            </div>
+            <div class="end-raffle neon">
+                <label class="terms-n-co neon" for="terms-and-conditions">
+                    <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="text-enhance" value="1"/> I accept the terms and conditions
+                </label>
+                <input class="submit-button neon text-enhance" type="submit" value="Submit" >
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p class="text-enhance neon">Created by: <a href="mailto:nicotra.santiago98@gmail.com">Nicotra Juan Santiago</a></p>
+    </footer>
+</body>
+</html>
